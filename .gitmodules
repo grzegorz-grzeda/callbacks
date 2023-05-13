@@ -1,6 +1,0 @@
-[submodule "libraries/containers"]
-	path = libraries/containers
-	url = git@github.com:grzegorz-grzeda/containers.git
-[submodule "tests/simple-unit-tests"]
-	path = tests/simple-unit-tests
-	url = git@github.com:grzegorz-grzeda/simple-unit-tests.git
