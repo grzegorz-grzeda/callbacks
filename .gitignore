@@ -1,6 +1,8 @@
 build/
 _build/
 libraries/
+packages/
+documentation/
 
 # Prerequisites
 *.d

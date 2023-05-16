@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 #include "callbacks.h"
-#include "simple_list.h"
+#include "simple-list.h"
 #include <stddef.h>
 #include <stdlib.h>
 

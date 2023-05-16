@@ -16,11 +16,11 @@ jobs:
     - name: Checkout the `callbacks` library
       uses: actions/checkout@v3
 
-    - name: Checkout the `simple-unit-tests` library
+    - name: Checkout the `simple-unit-tests` package
       uses: actions/checkout@v3
       with:
         repository: grzegorz-grzeda/simple-unit-tests
-        path: ./libraries/simple-unit-tests
+        path: ./packages/simple-unit-tests
 
     - name: Checkout the `containers` library
       uses: actions/checkout@v3

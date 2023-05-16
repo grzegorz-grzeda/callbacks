@@ -1,6 +1,9 @@
 {
     "libraries": [
-        "containers",
-        "simple-unit-tests"
+        "containers"
+    ],
+    "packages": [
+        "simple-unit-tests",
+        "simple-documentation-library"
     ]
 }
