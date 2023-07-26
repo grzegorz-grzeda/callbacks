@@ -26,6 +26,14 @@ static void test_create_callbacks(void **state)
     assert_ptr_not_equal(cbs, NULL);
 }
 
+static void test_register_invalid_callback(void **state)
+{
+    assert_false(register_callback_handler(NULL, NULL, NULL));
+    callbacks_t *cbs = create_callbacks();
+    assert_false(register_callback_handler(cbs, NULL, NULL));
+    dispatch_callbacks(NULL, NULL);
+}
+
 static void test_register_callbacks(void **state)
 {
     callbacks_t *cbs = create_callbacks();
@@ -64,6 +72,7 @@ int main(int argc, char **argv)
 {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(test_create_callbacks),
+        cmocka_unit_test(test_register_invalid_callback),
         cmocka_unit_test(test_register_callbacks),
     };
 
