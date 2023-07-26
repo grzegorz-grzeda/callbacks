@@ -27,8 +27,10 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE containers)
 
-if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    enable_testing()
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/packages/simple-unit-tests)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/libraries/containers)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
+    generate_code_coverage_for(${PROJECT_NAME})
 endif()
