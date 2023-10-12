@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2023 Grzegorz Grzęda
+# Copyright (c) 2023 G2Labs Grzegorz Grzęda
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,18 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+#
 cmake_minimum_required(VERSION 3.22)
+enable_testing()
 
 project(callbacks LANGUAGES C VERSION 1.0.1)
 add_library(${PROJECT_NAME})
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE containers)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-    enable_testing()
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/packages/simple-unit-tests)
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/libraries/containers)
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
+    include(${CMAKE_CURRENT_LIST_DIR}/lib/atomic-tests/cmake/atomic-tests.cmake)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/containers)
 endif()
+
+add_subdirectory(source)
+add_subdirectory(tests)
+target_link_libraries(${PROJECT_NAME} PRIVATE containers)

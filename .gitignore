@@ -1,6 +1,7 @@
+.vscode/
 build/
 _build/
-libraries/
+lib/
 packages/
 documentation/
 

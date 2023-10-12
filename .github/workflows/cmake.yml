@@ -16,27 +16,20 @@ jobs:
     - name: Checkout the `callbacks` library
       uses: actions/checkout@v3
 
-    - name: Checkout the `simple-unit-tests` package
+    - name: Checkout the `atomic-tests` package
       uses: actions/checkout@v3
       with:
-        repository: grzegorz-grzeda/simple-unit-tests
-        path: ./packages/simple-unit-tests
+        repository: grzegorz-grzeda/atomic-tests
+        path: ./lib/atomic-tests
 
     - name: Checkout the `containers` library
       uses: actions/checkout@v3
       with:
         repository: grzegorz-grzeda/containers
-        path: ./libraries/containers
-
-    - name: Install LCOV
-      run: |
-        wget https://github.com/linux-test-project/lcov/releases/download/v1.15/lcov-1.15.tar.gz
-        tar -zxf lcov-1.15.tar.gz
-        cd lcov-1.15
-        sudo make install
+        path: ./lib/containers
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DATOMIC_TESTS_PERFORM=1
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}

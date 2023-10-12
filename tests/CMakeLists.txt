@@ -19,4 +19,4 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-add_simple_unit_test(callbacks ${CMAKE_CURRENT_SOURCE_DIR}/test_callbacks.c callbacks)
+atomic_tests_add(test-callbacks test_callbacks.c callbacks)
